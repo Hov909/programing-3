@@ -165,6 +165,5 @@ function draw() {
                         birdArr[i].eat()
                 }
 
-
- 
 }
+
