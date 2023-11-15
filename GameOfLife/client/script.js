@@ -1,4 +1,4 @@
-function matrixGenerator(matrixSize, grass,grassEater,predator,doctor,water,fullEater,bird) {
+function matrixGenerator(matrixSize, grass,grassEater,predator,fullEater,doctor,water,bird) {
         var matrix = []
         ////  matrix սարքելու հատված
         for (let i = 0; i < matrixSize; i++) {
@@ -57,7 +57,7 @@ function matrixGenerator(matrixSize, grass,grassEater,predator,doctor,water,full
         return matrix
 }
 
-let matrix = matrixGenerator(30,9,17,20,4,5,5,14)
+let matrix = matrixGenerator(20,9,17,20,4,5,5,14)
 let side = 40
 ///օբյեկտներ պահելու զանգվածներ
 var grassArr = []
