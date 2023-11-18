@@ -27,7 +27,7 @@ module.exports = class Doctor extends LivingCreature{
 
     mul(){
     let emptyCell = this.chooseCell(0)
-    let newCell = random(emptyCell)
+    let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if(newCell){
             let newX = newCell[0]
@@ -44,7 +44,7 @@ module.exports = class Doctor extends LivingCreature{
 
     move(){
         let emptyCell = this.chooseCell(0,6)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
             if(newCell){
                 
@@ -59,7 +59,7 @@ module.exports = class Doctor extends LivingCreature{
 
                 this.hp += 5
 
-                if(this.hp > 12){
+                if(this.hp > 6){
                     this.mul()
                 }
                 else if(this.hp < 0){
@@ -73,7 +73,7 @@ module.exports = class Doctor extends LivingCreature{
 
      heal(){
         let emptyCell = this.chooseCell(2,3)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if(newCell){
             let newX = newCell[0]

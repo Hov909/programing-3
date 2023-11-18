@@ -27,7 +27,7 @@ module.exports = class Full extends LivingCreature{
 
     mul() {
         let emptyCell = this.chooseCell(0)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if (newCell) {
             this.life++
@@ -46,7 +46,7 @@ module.exports = class Full extends LivingCreature{
 
     eat() {
         let emptyCell = this.chooseCell(2,3,5)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if (newCell) {
             this.life += 4
@@ -91,7 +91,7 @@ module.exports = class Full extends LivingCreature{
 
     move(){
         let emptyCell = this.chooseCell(0,1,6)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
             if(newCell){
                 this.life -= 2
@@ -122,7 +122,7 @@ module.exports = class Full extends LivingCreature{
 
     heal(){
         let emptyCell = this.chooseCell(5)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if(newCell){
             this.life += 8
@@ -135,8 +135,7 @@ module.exports = class Full extends LivingCreature{
 
     find(){
         let emptyCell = this.chooseCell(6)
-        let newCell = random (emptyCell)
-
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
         if(newCell){
             
             let newX  = newCell[0]

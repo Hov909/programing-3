@@ -23,7 +23,7 @@ module.exports = class Water extends LivingCreature{
     mul(){
         this.mult++
         let emptyCell = this.chooseCell(0)
-        let newCell = random (emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
      
         if(newCell && this.mult >= 5){
                     let newX  = newCell[0]
@@ -44,7 +44,7 @@ module.exports = class Water extends LivingCreature{
 
     find(){
         let emptyCell = this.chooseCell(1)
-        let newCell = random (emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if(newCell){
             this.die()

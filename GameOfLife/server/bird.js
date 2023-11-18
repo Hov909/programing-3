@@ -26,7 +26,7 @@ module.exports = class Bird extends LivingCreature{
 
     mul() {
         let emptyCell = this.chooseCell(0)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if (newCell) {
             let newX = newCell[0]
@@ -44,7 +44,7 @@ module.exports = class Bird extends LivingCreature{
 
     eat() {
         let emptyCell = this.chooseCell(3,5)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if (newCell) {
             this.food += 7
@@ -82,7 +82,7 @@ module.exports = class Bird extends LivingCreature{
 
     move(){
         let emptyCell = this.chooseCell(0,6,1)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
             if(newCell){
                 this.food -= 2
@@ -114,11 +114,10 @@ module.exports = class Bird extends LivingCreature{
 
     heal(){
         let emptyCell = this.chooseCell(5)
-        let newCell = random(emptyCell)
+        let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
         if(newCell){
             this.food += 7
         }
     }
-
 }
