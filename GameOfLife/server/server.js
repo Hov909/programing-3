@@ -152,7 +152,7 @@ function game() {
         io.sockets.emit("send matrix", matrix);
 }
 
-setInterval(game, 100)
+setInterval(game, 500)
 
 
 io.on('connection', function () {

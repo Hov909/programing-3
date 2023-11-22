@@ -1,15 +1,40 @@
 let socket = io()
 let side = 30
 let grasscolor = "green"
+let predcolor = "red"
 
 
 let light = document.getElementById("Light");
+let spring = document.getElementById("spring");
+let summer = document.getElementById("summer");
+let autumn = document.getElementById("autumn");
+let winter = document.getElementById("winter");
+
 light.addEventListener("click", lighting);
+spring.addEventListener("click", SpringGen);
+summer.addEventListener("click", SummerGen);
+autumn.addEventListener("click", AutumnGen);
+winter.addEventListener("click", WinterGen);
 
 function lighting(){
-        grasscolor = "orange"
-        new Audio("./natural-thunder-113219.mp3").play();
+        grasscolor = "brown"
+        new Audio("./thunder.mp3").play();
+}
+function SpringGen(){
+        grasscolor = "pink"
+        new Audio("./bird.mp3").play();    
+}
+function SummerGen(){
+        grasscolor = "yellow"
 
+}
+function AutumnGen(){
+        grasscolor = "orange"
+        predcolor = "maroon"
+}
+function WinterGen(){
+        grasscolor = "black"
+        predcolor = "white"
 }
 
 
@@ -30,11 +55,12 @@ function changeColor(matrix) {
                                 rect(x * side, y * side, side, side)
                                 text('🍀', x * side, y * side + toBot)
                         }else if(obj == 2){
-                                fill ("yellow") 
+                                fill ("purple") 
                                 rect(x * side, y * side, side, side)
                         }else if(obj == 3){
-                                fill ("red")
+                                fill (predcolor)
                                 rect(x * side, y * side, side, side)
+                                text('🐻', x * side, y * side + toBot)
                         }else if(obj == 4){
                                 fill("white")
                                 rect(x * side, y * side, side, side)
@@ -58,8 +84,8 @@ function changeColor(matrix) {
 
 setInterval(
         function () {
-        socket.on('send matrix', nkarel)
-        },400
+        socket.on('send matrix', changeColor)
+        },500
     )
 
 
