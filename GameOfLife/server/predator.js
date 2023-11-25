@@ -85,7 +85,7 @@ module.exports = class Predator extends LivingCreature{
 
 
     move(){
-        let emptyCell = this.chooseCell(0,6)
+        let emptyCell = this.chooseCell(0,6 )
         let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
             if(newCell){

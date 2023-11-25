@@ -92,10 +92,9 @@ Bird = require("./bird")
 FullEater = require("./full")
 Water = require("./water")
 
-function createObject(matrix) {
+function createObject() {
         for (let y = 0; y < matrix.length; y++) {
                 for (let x = 0; x < matrix[y].length; x++) {
-
 
                         if (matrix[y][x] == 1) {
                                 let grass = new Grass(x, y)
@@ -152,12 +151,28 @@ function game() {
         io.sockets.emit("send matrix", matrix);
 }
 
-setInterval(game, 500)
+setInterval(game,1000)
+
+io.on('connection', function (socket) {
+        createObject();
+    });
+
+let statistics = {};
+
+setInterval(function () {
+        statistics.grass = grassArr.length;
+        statistics.grassEater = grassEaterArr.length;
+        statistics.predator = predatorArr.length;
+        statistics.doctor = doctorArr.length;
+        statistics.bird = birdArr.length;
+        statistics.full = fullEaterArr.length;
+        statistics.water = waterArr.length;
+        fs.writeFile("statistics.json", JSON.stringify(statistics), function () {
+            console.log("send")
+        })
+    }, 1000)
 
 
-io.on('connection', function () {
-        createObject(matrix)
-})
 
 
 

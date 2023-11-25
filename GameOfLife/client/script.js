@@ -17,16 +17,18 @@ autumn.addEventListener("click", AutumnGen);
 winter.addEventListener("click", WinterGen);
 
 function lighting(){
-        grasscolor = "brown"
         new Audio("./thunder.mp3").play();
+        grasscolor = "brown"
+        predcolor = "golden"
 }
 function SpringGen(){
+        new Audio("./bird.mp3").play();  
         grasscolor = "pink"
-        new Audio("./bird.mp3").play();    
+        fill(predcolor) 
 }
 function SummerGen(){
-        grasscolor = "yellow"
-
+        grasscolor = "lime"
+        predcolor = "chocolate"
 }
 function AutumnGen(){
         grasscolor = "orange"
@@ -34,7 +36,7 @@ function AutumnGen(){
 }
 function WinterGen(){
         grasscolor = "black"
-        predcolor = "white"
+        predcolor = "silver"
 }
 
 
@@ -85,7 +87,7 @@ function changeColor(matrix) {
 setInterval(
         function () {
         socket.on('send matrix', changeColor)
-        },500
+        },400
     )
 
 

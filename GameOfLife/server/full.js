@@ -2,7 +2,7 @@ let LivingCreature = require('./LivingCreature')
 module.exports = class Full extends LivingCreature{
     constructor(x,y){
         super(x,y)
-        this.life = 17
+        this.life = 18
         this.directions = []
     }
 

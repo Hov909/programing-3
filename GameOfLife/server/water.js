@@ -34,7 +34,6 @@ module.exports = class Water extends LivingCreature{
                     let wat = new Water(newX,newY)
                     waterArr.push(wat)
 
-
                     this.mult = 0
 
 

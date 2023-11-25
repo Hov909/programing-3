@@ -2,7 +2,7 @@ let LivingCreature = require('./LivingCreature')
 module.exports = class Bird extends LivingCreature{
     constructor(x,y){
         super(x,y)
-        this.food = 10
+        this.food = 8
         this.directions = [];
     }
 
@@ -85,7 +85,7 @@ module.exports = class Bird extends LivingCreature{
         let newCell = emptyCell[Math.floor(Math.random() * emptyCell.length)]
 
             if(newCell){
-                this.food -= 2
+                this.food --
                 let newX = newCell[0]
                 let newY = newCell[1]
 
