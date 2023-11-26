@@ -2,7 +2,7 @@ let LivingCreature = require('./LivingCreature')
 module.exports = class Doctor extends LivingCreature{
     constructor(x,y){
         super(x, y)
-        this.hp = 19
+        this.hp = 20
         this.directions = [ ];
     }
 

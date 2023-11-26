@@ -153,11 +153,109 @@ function game() {
 
 setInterval(game,1000)
 
-io.on('connection', function (socket) {
+io.on('connection',function(socket){
         createObject();
+        socket.on("WinterGen",GrassMul)
+        socket.on("WinterGen", GrassEaterEnergy)
+        socket.on("WinterGen", PredatorEnergy)
+        socket.on("WinterGen", DoctorEnergy)
+        socket.on("WinterGen", WaterMul)
+        socket.on("WinterGen", FullEnergy)
+        socket.on("Summer", GrassSum)
+        socket.on("Summer", GrassEaterSum)
+        socket.on("Summer", PredatorSum)
+        socket.on("Spring", BirdSp)
+        socket.on("Spring", FullSp)
+        socket.on("Autumn", BirdAut)
+        socket.on("Autumn", FullAut)
+        socket.on("Thunder", GrassTh)
+        socket.on("Thunder", PredatorTh)
+        socket.on("Thunder", DoctorTh)
     });
 
 let statistics = {};
+
+function GrassMul(){
+        for (let i in grassArr) {
+            grassArr[i].multiply = -5;
+        }
+}
+function GrassSum(){
+        for (let i in grassArr) {
+            grassArr[i].multiply = 10;
+        }
+}
+function GrassTh(){
+        for (let i in grassArr) {
+            grassArr[i].multiply = -8;
+        }
+}
+function BirdSp(){
+        for (let i in birdArr) {
+            birdArr[i].food = 18;
+        }
+}
+function BirdAut(){
+        for (let i in birdArr) {
+            birdArr[i].food = 5;
+        }
+}
+function GrassEaterSum(){
+        for (let i in grassEaterArr) {
+            grassEaterArr[i].energy = 50;
+        }
+}
+function GrassEaterEnergy(){
+        for (let i in grassEaterArr) {
+            grassEaterArr[i].energy = 57;
+        }
+}
+function PredatorEnergy(){
+        for (let i in predatorArr) {
+            predatorArr[i].energy = 23;
+        }
+}
+function PredatorSum(){
+        for (let i in predatorArr) {
+            predatorArr[i].energy = 60;
+        }
+}
+function PredatorTh(){
+        for (let i in predatorArr) {
+            predatorArr[i].energy = 17;
+        }
+}
+function DoctorEnergy(){
+        for (let i in doctorArr) {
+            doctorArr[i].hp = 24;
+        }
+}
+function DoctorTh(){
+        for (let i in doctorArr) {
+            doctorArr[i].hp = 5;
+        }
+}
+function WaterMul(){
+        for (let i in waterArr) {
+            waterArr[i].mult = 8;
+        }
+}
+function FullEnergy(){
+        for (let i in fullEaterArr) {
+                fullEaterArr[i].life = 30;
+        }
+}
+function FullSp(){
+        for (let i in fullEaterArr) {
+                fullEaterArr[i].life = 10;
+        }
+}
+function FullAut(){
+        for (let i in fullEaterArr) {
+                fullEaterArr[i].life = 11;
+        }
+}
+
 
 setInterval(function () {
         statistics.grass = grassArr.length;
